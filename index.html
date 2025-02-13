@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Be My Valentine?</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      body {
+        border: 10px solid red;
+      }
+    </style>
+  </head>
+  <body
+    class="flex justify-center items-center h-screen bg-gradient-to-r from-pink-400 to-pink-300 text-white text-left overflow-hidden"
+  >
+    <div class="flex justify-between items-center w-4/5">
+      <div class="text-left w-3/4 max-w-md">
+        <h1 class="text-7xl font-bold mb-0">Happy</h1>
+        <h1 class="text-8xl font-bold mb-0 ml-5">
+          <span class="text-red-600">Valentine’s</span>
+        </h1>
+        <h1 class="text-7xl font-bold mb-12 ml-16">Day!</h1>
+
+        <p class="text-lg mb-6">Hi Baby!</p>
+        <p class="text-lg mb-6">
+          Valentine’s Day is special, but what makes it even better is spending
+          it with you. 🥰 Let’s have our own little celebration—just you and me
+          I promise love, laughter, and a moment that’s just ours. 🌹✨
+        </p>
+        <p class="text-lg mb-6">So, can you be my Valentine? Say yes? 😘💕</p>
+        <p class="text-lg mb-6">—— From your baby, Sol 😘💕</p>
+        <div class="flex justify-start gap-6 mt-10">
+          <button
+            id="button1"
+            class="text-lg px-24 py-3 rounded-lg shadow-lg hover:scale-110 transition bg-pink-500 text-white font-bold"
+          >
+            <span id="button1-text">YES</span>
+          </button>
+          <button
+            id="button2"
+            class="text-lg px-24 py-3 rounded-lg relative bg-gray-300 text-white font-bold"
+          >
+            <span id="button2-text">NO</span>
+          </button>
+        </div>
+      </div>
+      <img
+        src="pola.png"
+        alt="Heart"
+        class="w-2/6 ml-10"
+        style="order: 2; max-width: 100%; height: auto; align-self: center"
+      />
+    </div>
+    <div class="absolute inset-0 pointer-events-none" id="hearts"></div>
+    <script>
+      document
+        .getElementById("button1")
+        .addEventListener("mouseover", function () {
+          document.getElementById("button1").classList.remove("bg-gray-300");
+          document.getElementById("button1").classList.add("bg-pink-500");
+          document.getElementById("button2").classList.remove("bg-pink-500");
+          document.getElementById("button2").classList.add("bg-gray-300");
+          document.getElementById("button1-text").innerText = "YES";
+          document.getElementById("button2-text").innerText = "NO";
+        });
+      document
+        .getElementById("button2")
+        .addEventListener("mouseover", function () {
+          document.getElementById("button1").classList.remove("bg-pink-500");
+          document.getElementById("button1").classList.add("bg-gray-300");
+          document.getElementById("button2").classList.remove("bg-gray-300");
+          document.getElementById("button2").classList.add("bg-pink-500");
+          document.getElementById("button1-text").innerText = "NO";
+          document.getElementById("button2-text").innerText = "YES";
+        });
+      document.getElementById("button1").addEventListener("click", function () {
+        alert("Yay! 💖 Be ready on February 15 baby 😉. See you. 😘");
+      });
+      document.getElementById("button2").addEventListener("click", function () {
+        alert("Yay! 💖 Be ready on February 15 baby 😉. See you. 😘");
+      });
+      function createHeart() {
+        const heart = document.createElement("div");
+        heart.classList.add(
+          "absolute",
+          "w-6",
+          "h-6",
+          "bg-red-500",
+          "rounded-full"
+        );
+        heart.style.left = Math.random() * 100 + "vw";
+        heart.style.animation = `float ${
+          Math.random() * 3 + 2
+        }s linear infinite`;
+        document.getElementById("hearts").appendChild(heart);
+        setTimeout(() => heart.remove(), 5000);
+      }
+      setInterval(createHeart, 300);
+    </script>
+    <style>
+      @keyframes float {
+        0% {
+          transform: translateY(100vh) scale(0.5);
+          opacity: 1;
+        }
+        100% {
+          transform: translateY(-10vh) scale(1);
+          opacity: 0;
+        }
+      }
+    </style>
+  </body>
+</html>
